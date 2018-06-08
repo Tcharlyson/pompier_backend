@@ -14,3 +14,15 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+  $router->get('agents',  ['uses' => 'AgentController@showAllAgents']);
+
+  $router->get('agents/{id}', ['uses' => 'AgentController@showOneAgent']);
+
+  $router->post('agents', ['uses' => 'AgentController@create']);
+
+  $router->delete('agents/{id}', ['uses' => 'AgentController@delete']);
+
+  $router->put('agents/{id}', ['uses' => 'AgentController@update']);
+});
