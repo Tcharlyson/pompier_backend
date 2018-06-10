@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nomination extends Model
+class Horaire extends Model
 {
 
     /**
@@ -13,9 +13,9 @@ class Nomination extends Model
      * @var array
      */
     protected $fillable = [
-      'appelation','diminutif'
+      'id_agent','type','horaire_debut','horaire_fin'
     ];
-
+ 
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -23,8 +23,7 @@ class Nomination extends Model
      */
     protected $hidden = [];
 
-    public function nominationAgents()
-    {
-        return $this->hasMany('App\Agent', 'id_nomination');
+    public function horaireAgent() {
+        return $this->belongsTo('App\Agent', 'id_agent');
     }
 }

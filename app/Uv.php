@@ -25,6 +25,6 @@ class Uv extends Model
 
     public function uvAgents()
     {
-        return $this->hasMany('App\Agent');
+        return $this->hasMany('App\Agent', 'id_uv');
     }
 }

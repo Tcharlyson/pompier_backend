@@ -25,6 +25,6 @@ class Grade extends Model
 
     public function gradeAgents()
     {
-        return $this->hasMany('App\Agent');
+        return $this->hasMany('App\Agent', 'id_grade');
     }
 }

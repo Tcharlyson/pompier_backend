@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
             GradesTableSeeder::class,
             NominationsTableSeeder::class,
             UvsTableSeeder::class,
+            FonctionsTableSeeder::class,
+            NaturesTableSeeder::class,
+            VehiculesTableSeeder::class,
             AgentsTableSeeder::class,            
         ]);
     }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class NominationsTableSeeder extends Seeder
+class VehiculesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,9 +12,10 @@ class NominationsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('nominations')->insert([
-            'appelation' => 'Sapeur-pompier volontaire',
-            'diminutif' => 'SPV',
+        DB::table('vehicules')->insert([
+            'appelation' => 'VSAV',
+            'immatriculation' => 'CX-534-BY',
+            'armement' => '3',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

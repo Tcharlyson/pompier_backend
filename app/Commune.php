@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nomination extends Model
+class Commune extends Model
 {
 
     /**
@@ -13,7 +13,7 @@ class Nomination extends Model
      * @var array
      */
     protected $fillable = [
-      'appelation','diminutif'
+      'nom','postal'
     ];
 
     /**
@@ -23,8 +23,8 @@ class Nomination extends Model
      */
     protected $hidden = [];
 
-    public function nominationAgents()
+    public function communeDeparts()
     {
-        return $this->hasMany('App\Agent', 'id_nomination');
+        return $this->hasMany('App\Depart', 'id_commune');
     }
 }

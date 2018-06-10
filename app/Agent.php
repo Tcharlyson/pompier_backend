@@ -37,4 +37,9 @@ class Agent extends Model
     {
         return $this->belongsTo('App\Nomination', 'id_nomination');
     }
+
+    public function horaireAgents()
+    {
+        return $this->hasMany('App\Horaire', 'id_agent');
+    }
 }

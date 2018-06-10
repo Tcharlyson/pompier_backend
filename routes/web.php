@@ -16,6 +16,8 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
+
+  // AGENTS
   $router->get('agents',  ['uses' => 'AgentController@showAllAgents']);
 
   $router->get('agents/{id}', ['uses' => 'AgentController@showOneAgent']);
@@ -25,4 +27,40 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->delete('agents/{id}', ['uses' => 'AgentController@delete']);
 
   $router->put('agents/{id}', ['uses' => 'AgentController@update']);
+
+  // GRADES
+
+  $router->get('grades',  ['uses' => 'GradeController@showAllGrades']);
+
+  $router->get('grades/{id}', ['uses' => 'GradeController@showOneGrade']);
+
+  $router->post('grades', ['uses' => 'GradeController@create']);
+
+  $router->delete('grades/{id}', ['uses' => 'GradeController@delete']);
+
+  $router->put('grades/{id}', ['uses' => 'GradeController@update']);
+
+  // NOMINATIONS
+
+  $router->get('nominations',  ['uses' => 'NominationController@showAllNominations']);
+
+  $router->get('nominations/{id}', ['uses' => 'NominationController@showOneNomination']);
+
+  $router->post('nominations', ['uses' => 'NominationController@create']);
+
+  $router->delete('nominations/{id}', ['uses' => 'NominationController@delete']);
+
+  $router->put('nominations/{id}', ['uses' => 'NominationController@update']);
+
+  // UVS
+
+  $router->get('uvs',  ['uses' => 'UvController@showAllUvs']);
+
+  $router->get('uvs/{id}', ['uses' => 'UvController@showOneUv']);
+
+  $router->post('uvs', ['uses' => 'UvController@create']);
+
+  $router->delete('uvs/{id}', ['uses' => 'UvController@delete']);
+
+  $router->put('uvs/{id}', ['uses' => 'UvController@update']);
 });
