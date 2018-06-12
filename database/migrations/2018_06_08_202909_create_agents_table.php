@@ -23,7 +23,7 @@ class CreateAgentsTable extends Migration
             $table->integer('equipe');
             $table->integer('id_uv')->unsigned();
             $table->enum('specialite', ['FDF1', 'FDF2']);
-            $table->boolean('carence');
+            $table->boolean('carence')->nullable(true);
             $table->enum('conduite', ['VL', 'COD1', 'COD2']);
             $table->integer('id_nomination')->unsigned();
             $table->boolean('est_stagiaire')->default(false);
@@ -53,8 +53,7 @@ class CreateAgentsTable extends Migration
             $table->enum('type', ['garde', 'astreinte'])->nullable(false);
             $table->dateTime('horaire_debut')->nullable(false);
             $table->dateTime('horaire_fin')->nullable(false);
-            $table->timestamps();   
-
+            $table->timestamps();
         });
 
         Schema::create('agents_vehicules', function (Blueprint $table) {
@@ -152,14 +151,6 @@ class CreateAgentsTable extends Migration
             $table->foreign('id_grade')->references('id')->on('grades');    
             $table->foreign('id_uv')->references('id')->on('uvs');
             $table->foreign('id_nomination')->references('id')->on('nominations');
-            
-        });
-
-
-        Schema::table('horaires', function (Blueprint $table) {
-
-            // PRIMARY AND FOREIGN KEYS
-            $table->foreign('id_agent')->references('id')->on('agents');             
             
         });
 

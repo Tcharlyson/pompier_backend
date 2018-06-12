@@ -28,6 +28,20 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
   $router->put('agents/{id}', ['uses' => 'AgentController@update']);
 
+  // HORAIRES
+  $router->get('horaires',  ['uses' => 'HoraireController@showAllHoraires']);
+
+  $router->get('horaires/{id}', ['uses' => 'HoraireController@showOneHoraire']);
+
+  $router->post('horaires', ['uses' => 'HoraireController@create']);
+
+  $router->delete('horaires/{id}', ['uses' => 'HoraireController@delete']);
+
+  $router->put('horaires/{id}', ['uses' => 'HoraireController@update']);
+
+  // SPECIAL HORAIRE
+   $router->get('horaires/{start}/{end}',  ['uses' => 'HoraireController@showHorairesByFilters']);
+
   // GRADES
 
   $router->get('grades',  ['uses' => 'GradeController@showAllGrades']);
@@ -63,4 +77,16 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->delete('uvs/{id}', ['uses' => 'UvController@delete']);
 
   $router->put('uvs/{id}', ['uses' => 'UvController@update']);
+
+  // VEHICULES
+
+  $router->get('vehicules',  ['uses' => 'VehiculeController@showAllVehicules']);
+
+  $router->get('vehicules/{id}', ['uses' => 'VehiculeController@showOneVehicule']);
+
+  $router->post('vehicules', ['uses' => 'VehiculeController@create']);
+
+  $router->delete('vehicules/{id}', ['uses' => 'VehiculeController@delete']);
+
+  $router->put('vehicules/{id}', ['uses' => 'VehiculeController@update']);
 });
