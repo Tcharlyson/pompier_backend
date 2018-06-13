@@ -13,7 +13,7 @@ class Agent extends Model
      * @var array
      */
     protected $fillable = [
-      'nom','prenom','id_grade','equipe','id_uv','specialite','carence','conduite','id_nomination','est_stagiaire','telephone','num','est_admin'
+      'nom','prenom','id_grade','id_equipe','id_uv','specialite','carence','conduite','id_nomination','est_stagiaire','telephone','num','est_admin'
     ];
 
     /**
@@ -36,6 +36,11 @@ class Agent extends Model
     public function nomination()
     {
         return $this->belongsTo('App\Nomination', 'id_nomination');
+    }
+
+    public function equipe()
+    {
+        return $this->belongsTo('App\Equipe', 'id_equipe');
     }
 
     public function horaireAgents()

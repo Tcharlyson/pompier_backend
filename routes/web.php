@@ -54,6 +54,18 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
   $router->put('grades/{id}', ['uses' => 'GradeController@update']);
 
+  // GRADES
+
+  $router->get('equipes',  ['uses' => 'EquipeController@showAllEquipes']);
+
+  $router->get('equipes/{id}', ['uses' => 'EquipeController@showOneEquipe']);
+
+  $router->post('equipes', ['uses' => 'EquipeController@create']);
+
+  $router->delete('equipes/{id}', ['uses' => 'EquipeController@delete']);
+
+  $router->put('equipes/{id}', ['uses' => 'EquipeController@update']);
+
   // NOMINATIONS
 
   $router->get('nominations',  ['uses' => 'NominationController@showAllNominations']);

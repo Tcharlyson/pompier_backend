@@ -10,12 +10,12 @@ class AgentController extends Controller
 
     public function showAllAgents()
     {
-        return response()->json(Agent::with(['grade', 'uv', 'nomination'])->get());
+        return response()->json(Agent::with(['grade', 'uv', 'nomination', 'equipe'])->get());
     }
 
     public function showOneAgent($id)
     {
-        return response()->json(Agent::with(['grade', 'uv', 'nomination'])->find($id));
+        return response()->json(Agent::with(['grade', 'uv', 'nomination', 'equipe'])->find($id));
     }
 
     public function create(Request $request)

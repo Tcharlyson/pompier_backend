@@ -20,7 +20,7 @@ class CreateAgentsTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->integer('id_grade')->unsigned();
-            $table->integer('equipe');
+            $table->integer('id_equipe')->unsigned();
             $table->integer('id_uv')->unsigned();
             $table->enum('specialite', ['FDF1', 'FDF2']);
             $table->boolean('carence')->nullable(true);
@@ -95,6 +95,16 @@ class CreateAgentsTable extends Migration
 
         });
 
+        Schema::create('equipes', function (Blueprint $table) {
+
+            // TABLE DEFINITION
+            $table->increments('id');
+            $table->string('appelation')->nullable(false);
+            $table->enum('diminutif', ['EQ1', 'EQ2', 'DS1', 'DS2', 'GRD'])->nullable(false);
+            $table->timestamps();
+
+        });
+
         Schema::create('nominations', function (Blueprint $table) {
 
             // TABLE DEFINITION
@@ -151,7 +161,7 @@ class CreateAgentsTable extends Migration
             $table->foreign('id_grade')->references('id')->on('grades');    
             $table->foreign('id_uv')->references('id')->on('uvs');
             $table->foreign('id_nomination')->references('id')->on('nominations');
-            
+            $table->foreign('id_equipe')->references('id')->on('equipes');  
         });
 
         Schema::table('agents_vehicules', function (Blueprint $table) {

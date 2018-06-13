@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             FonctionsTableSeeder::class,
             NaturesTableSeeder::class,
             VehiculesTableSeeder::class,
+            EquipesTableSeeder::class,
             AgentsTableSeeder::class,            
         ]);
     }
