@@ -101,4 +101,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->delete('vehicules/{id}', ['uses' => 'VehiculeController@delete']);
 
   $router->put('vehicules/{id}', ['uses' => 'VehiculeController@update']);
+
+  // FEUILLEs
+
+  $router->get('astreintes',  ['uses' => 'FeuilleController@generateAstreintes']);
 });
