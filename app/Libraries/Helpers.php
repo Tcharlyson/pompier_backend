@@ -15,16 +15,23 @@ class Helpers
         $dateCreated = $arrayAstreintes[0];
         $heureCreated = (int)(explode(':', $arrayAstreintes[1])[0]);
 
+        $dateCreatedBegin = new DateTime($date);
+        $difference = $dateCreatedBegin->diff(new DateTime($dateCreated))->format('%a');
+        
+
         if($heureDebut == $actual && $date == $dateDebut) {
           if($equipeTurn == $agentEquipe || $value['type'] == 'garde') {
             $color = 'blue';
           } else {
             $color = 'yellow';
           }
-          if($dateCreated == $date && $heureCreated < 12 && $heureDebut < 18) {
+          if($dateCreated == $date && ($heureCreated < 12 || $heureCreated >= 12) && $heureDebut < 18) {
             $color = 'yellow';
           }
-          if($dateCreated == $date && $heureCreated > 12 && $heureDebut >= 18) {
+          if(intval($difference) === 1 && $heureCreated >= 12 && $heureDebut < 18) {
+            $color = 'yellow';
+          }
+          if($dateCreated == $date && $heureCreated >= 12 && $heureDebut >= 18) {
             $color = 'yellow';
           }
         }
@@ -37,7 +44,7 @@ class Helpers
       $dateStarted = new DateTime("2018-06-08 18:00:00");
       $dateNow = new DateTime(date('Y-m-d H:m:i'));
       $interval = $dateStarted->diff($dateNow);
-      return intval($interval->format('%a')) % 2 === 1 ? 2 : 1;
+      return (intval($interval->format('%a')) / 7) % 2 === 1 ? 1 : 2;
     }
 }
 
