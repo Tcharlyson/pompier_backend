@@ -20,7 +20,7 @@ class Helpers
         
 
         if($heureDebut == $actual && $date == $dateDebut) {
-          if($equipeTurn == $agentEquipe || $value['type'] == 'garde') {
+          if($equipeTurn == $agentEquipe) {
             $color = 'blue';
           } else {
             $color = 'yellow';
@@ -33,6 +33,9 @@ class Helpers
           }
           if($dateCreated == $date && $heureCreated >= 12 && $heureDebut >= 18) {
             $color = 'yellow';
+          }
+          if($value['type'] == 'garde') {
+            $color = 'blue';
           }
         }
       }

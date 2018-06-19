@@ -105,4 +105,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   // FEUILLEs
 
   $router->get('astreintes',  ['uses' => 'FeuilleController@generateAstreintes']);
+  $router->get('effectifs',  ['uses' => 'FeuilleController@generateEffectifs']);
 });
